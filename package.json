@@ -3,6 +3,7 @@
   "displayName": "ray.so",
   "description": "Create beautiful images of your code",
   "icon": "icon.png",
+  "publisher": "Birdgg",
   "version": "0.0.1",
   "repository": {
 		"url": "https://github.com/birdgg/vscode-rayso"
@@ -11,8 +12,16 @@
     "vscode": "^1.74.0"
   },
   "categories": [
+    "Snippets",
+		"Visualization",
     "Other"
   ],
+	"keywords": [
+		"ray.so",
+		"ray",
+		"snippets",
+		"code snippets"
+	],
   "activationEvents": [
     "onCommand:rayso.upload"
   ],
@@ -21,7 +30,7 @@
     "commands": [
       {
         "command": "rayso.upload",
-        "title": "upload snapshot"
+        "title": "Rayso: Upload Snippet"
       }
     ],
     "menus": {
@@ -45,7 +54,7 @@
           "scope": "resource",
           "type": "boolean",
           "default": true,
-          "description": "Use a transparent  background for code snapshot"
+          "description": "Use a transparent background for code snapshot"
         },
         "rayso.darkMode": {
           "scope": "resource",
@@ -57,6 +66,7 @@
           "scope": "resource",
           "type": "string",
           "default": "16",
+          "enum": ["16", "32", "64", "128"],
           "description": "The padding for the snapshot's container"
         }
       }
