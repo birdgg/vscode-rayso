@@ -1,9 +1,9 @@
 {
-  "name": "rayso",
-  "displayName": "ray.so",
-  "description": "Create beautiful images of your code",
+  "name": "raysocode",
+  "displayName": "ray.so code snapshot",
+  "description": "Create beautiful images of your code with ray.so",
   "icon": "icon.png",
-  "publisher": "Birdgg",
+  "publisher": "birdgg",
   "version": "0.0.1",
   "repository": {
 		"url": "https://github.com/birdgg/vscode-rayso"
@@ -23,25 +23,25 @@
 		"code snippets"
 	],
   "activationEvents": [
-    "onCommand:rayso.upload"
+    "onCommand:raysocode.upload"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "rayso.upload",
-        "title": "Rayso: Upload Snippet"
+        "command": "raysocode.upload",
+        "title": "Ray.so Code: Upload code"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "command": "rayso.upload"
+          "command": "raysocode.upload"
         }
       ]
     },
     "configuration": {
-      "title": "RaySo",
+      "title": "RaySo Code",
       "properties": {
         "rayso.theme": {
           "scope": "resource",

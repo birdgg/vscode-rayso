@@ -67,7 +67,7 @@ function correctIndentation(text: string) {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  const disposable = vscode.commands.registerCommand("rayso.upload", () => {
+  const disposable = vscode.commands.registerCommand("raysocode.upload", () => {
     const { activeTextEditor, showErrorMessage, showInformationMessage } =
       vscode.window;
 
