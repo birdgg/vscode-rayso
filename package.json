@@ -6,22 +6,22 @@
   "publisher": "birdgg",
   "version": "0.0.1",
   "repository": {
-		"url": "https://github.com/birdgg/vscode-rayso"
-	},
+    "url": "https://github.com/birdgg/vscode-rayso"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
     "Snippets",
-		"Visualization",
+    "Visualization",
     "Other"
   ],
-	"keywords": [
-		"ray.so",
-		"ray",
-		"snippets",
-		"code snippets"
-	],
+  "keywords": [
+    "ray.so",
+    "ray",
+    "snippets",
+    "code snippets"
+  ],
   "activationEvents": [
     "onCommand:raysocode.upload"
   ],
@@ -47,7 +47,16 @@
           "scope": "resource",
           "type": "string",
           "default": "breeze",
-          "enum": ["breeze", "candy", "crimson", "falcon", "meadow", "midnight", "raindrop", "sunset"],
+          "enum": [
+            "breeze",
+            "candy",
+            "crimson",
+            "falcon",
+            "meadow",
+            "midnight",
+            "raindrop",
+            "sunset"
+          ],
           "description": "Theme for code snapshot"
         },
         "rayso.background": {
@@ -60,37 +69,46 @@
           "scope": "resource",
           "type": "boolean",
           "default": true,
-          "description": "Use dark mode for code snapshot" 
+          "description": "Use dark mode for code snapshot"
         },
         "rayso.padding": {
           "scope": "resource",
           "type": "string",
           "default": "16",
-          "enum": ["16", "32", "64", "128"],
+          "enum": [
+            "16",
+            "32",
+            "64",
+            "128"
+          ],
           "description": "The padding for the snapshot's container"
         }
       }
     }
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "package": "pnpm vsce package --no-dependencies",
+    "publish": "pnpm vsce publish --no-dependencies"
   },
   "devDependencies": {
-    "@types/vscode": "^1.74.0",
     "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "esbuild": "^0.17.5",
     "eslint": "^8.28.0",
     "glob": "^8.0.3",
     "mocha": "^10.1.0",
-    "typescript": "^4.9.3",
-    "@vscode/test-electron": "^2.2.0"
+    "typescript": "^4.9.3"
   }
 }
