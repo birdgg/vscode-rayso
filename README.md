@@ -4,6 +4,7 @@ _NOTICE_: This is NOT an official tool by Raycast company!!
 
 This extension is forked from [RayThis](https://marketplace.visualstudio.com/items?itemName=Goopware.raythis)
 
+![demo](/images/demo.gif)
 ## Usage Instructions
 
 1. Select text.
